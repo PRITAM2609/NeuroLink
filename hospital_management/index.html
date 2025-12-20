@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroLink</title>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #131323 0%, #1c1c33 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: #e0e0e0;
+}
+
+/* Softer subtle background */
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(120, 119, 198, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255, 119, 230, 0.06) 0%, transparent 45%);
+    opacity: 0.6;
+}
+
+/* Light, subtle particles */
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+}
+
+.container {
+    background: rgba(18, 18, 30, 0.75);
+    backdrop-filter: blur(10px) saturate(150%);
+    padding: 50px 45px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Slight outer border glow on hover */
+.container::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #6d7cff, #8b5bd9);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.container:hover::before {
+    opacity: 0.08;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 18px;
+    font-size: 2.6em;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 45px;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+.role-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.role-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.role-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Doctor button */
+.doctor-btn {
+    background: rgba(52, 152, 219, 0.12);
+}
+
+.doctor-btn:hover {
+    background: rgba(52, 152, 219, 0.18);
+}
+
+/* Patient button */
+.patient-btn {
+    background: rgba(46, 204, 113, 0.12);
+}
+
+.patient-btn:hover {
+    background: rgba(46, 204, 113, 0.18);
+}
+
+.icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    transition: transform 0.25s ease;
+}
+
+.role-btn:hover .icon {
+    transform: scale(1.06);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 30px;
+    }
+
+    .role-btn {
+        min-width: 170px;
+        padding: 25px 30px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .role-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role-btn {
+        width: 100%;
+        max-width: 270px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LOGIN AS:-</h1>
+        <p class="subtitle">Advanced Healthcare Management Platform</p>
+        <div class="role-buttons">
+            <a href="doctor_login.php" class="role-btn doctor-btn">
+                <div class="icon">👨‍⚕️</div>
+                <div>Doctor Portal</div>
+            </a>
+            <a href="patient_login.php" class="role-btn patient-btn">
+                <div class="icon">🏥</div>
+                <div>Patient Portal</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
